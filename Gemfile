@@ -6,7 +6,9 @@ gem 'acts_as_votable'
 gem 'devise'
 
 gem 'carrierwave'
-gem "fog-aws"
+gem 'fog-aws'
+gem 'omniauth-facebook'
+# gem 'dotenv'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
