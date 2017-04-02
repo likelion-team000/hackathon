@@ -17,6 +17,7 @@ class HomeController < ApplicationController
     u = Photo.new
     u.background_img = uploader_one
     u.face_img = uploader_two
+    u.location = params[:location]
     # u.avatar = uploader
 
     u.save!

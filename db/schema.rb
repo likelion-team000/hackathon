@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170402040449) do
   create_table "photos", force: :cascade do |t|
     t.string   "background_img"
     t.string   "face_img"
+    t.string   "location"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "avatar"
