@@ -20,10 +20,11 @@
       </div>
       <div class="card-action">
         <%= link_to like_photo_path(p), method: :put do %>
-          Upvote
-          <%= p.get_upvotes.size %>
+          <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
+          <!-- <p> </p><%= p.get_upvotes.size %> -->
         <% end %>
-        <a href="#"><i class="material-icons">thumb_up</i></a>
+        <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
+        <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
         <a href="#" class="right"><i class="material-icons">comment</i></a>
       </div>
     </div>
