@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<body>
+      <div class="container">
   <title>  | </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,6 +21,7 @@
 <% end %>
 
 <%= yield %>
+      </div>
 
 </body>
 </html>
