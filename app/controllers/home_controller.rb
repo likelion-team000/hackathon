@@ -50,7 +50,7 @@ class HomeController < ApplicationController
 
     end
 
-    redirect_to "/home/hollywood"
+    redirect_to "/#image-test"
   end
 
   def hollywood
