@@ -19,6 +19,17 @@ class HomeController < ApplicationController
     u.face_img = uploader_two
     u.location = params[:location]
     u.content = params[:content]
+    if current_user.name != nil
+      u.user_name = current_user.name
+    else
+        u.user_name = current_user.email
+    end
+
+    if current_user.image != nil
+      u.user_img_url = current_user.image
+    else
+      u.user_img_url = 'https://s3-us-west-1.amazonaws.com/hackthon-likelion/asset/noprofile.jpg'
+    end
     # u.avatar = uploader
 
     u.save!
@@ -50,7 +61,10 @@ class HomeController < ApplicationController
 
     end
 
-    redirect_to "/home/hollywood"
+    u.background_img = "https://hackthon-likelion.s3.amazonaws.com/uploads/956470095761851/output#{u.id}.jpg"
+    u.save!
+
+    redirect_to "/#image-test"
   end
 
   def hollywood

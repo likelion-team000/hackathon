@@ -33,16 +33,20 @@
 
   </style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
+
 <%= render "layouts/navbar" %>
 
-<% if notice != nil %>
-  <p class="alert alert-success"> <%= notice%> </p>
-<% end %>
-<% if alert != nil %>
-  <p class="alert alert-danger"> <%= alert%> </p>
-<% end %>
+<div>
+  <% if notice != nil %>
+    <p class="alert alert-success" style="position: absolute; z-index: 1; width: 50%; margin-top: -20px; opacity:0.9;"> <%= notice%> </p>
+  <% end %>
+  <% if alert != nil %>
+    <p class="alert alert-danger" style="position: absolute; z-index: 1; width: 50%; margin-top: -20px; opacity:0.9;"> <%= alert%> </p>
+  <% end %>
+</div>
 
 <%= yield %>
       </div>
