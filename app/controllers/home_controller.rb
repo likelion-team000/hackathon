@@ -43,7 +43,19 @@ class HomeController < ApplicationController
   end
 
   def hollywood
-    @photos = Photo.all
+     @photos = Photo.select{|item| item[:location] == "hollywood"}
+  end
+
+  def dodger
+     @photos = Photo.select{|item| item[:location] == "dodger"}
+  end
+
+  def getty
+     @photos = Photo.select{|item| item[:location] == "getty"}
+  end
+
+  def lacma
+     @photos = Photo.select{|item| item[:location] == "lacma"}
   end
 
   def createform
