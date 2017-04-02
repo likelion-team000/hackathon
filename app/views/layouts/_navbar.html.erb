@@ -1,6 +1,6 @@
-<nav>
+<nav class="cyan">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
+    <a href="/" class="brand-logo">Meet LA 2024</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a class="waves-effect waves-light btn" href="/">Home</a></li>
       <li><a class="waves-effect waves-light btn" href="/home/createform">upload</a></li>
@@ -9,8 +9,8 @@
         <li><%= link_to('My Account', edit_user_registration_path) %></li>
         <li><a href="/users/sign_out">Log Out</a></li>
       <% else %>
-        <li><%= link_to('Sign in', new_user_session_path) %></li>
-        <li><%= link_to('Sign up', new_user_registration_path) %></li>
+        <li><%= link_to('Sign In', new_user_session_path) %></li>
+        <li><%= link_to('Sign Up', new_user_registration_path) %></li>
       <% end %>
     </ul>
   </div>
