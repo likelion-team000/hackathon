@@ -1,7 +1,18 @@
 <h1>Home#Createform</h1>
 <p>Find me in app/views/home/createform.html.erb</p>
 
-<p> hello! <%= current_user.email %> </p>
+<p>
+    hello!
+    <%= current_user.email %>
+</p>
+<p>
+    hello!
+    <%= current_user.name %>
+</p>
+<p>
+    hello!
+    <img src="<%= current_user.image %>">
+</p>
 
 <!-- <div class="upload-preview-one">
     <img style="max-width:100px;"/>
@@ -12,17 +23,58 @@
 </div>
 <input class="file-two" name="background_img" type="file"> -->
 
+<div class="row">
+    <form action="/upload_image" method="POST" enctype="multipart/form-data">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="row">
 
+            <div class="input-field col s12 m6">
+                <select name="location">
+                    <option value="" disabled selected>Choose your location</option>
+                    <option value="getty">Getty Center</option>
+                    <option value="lacma">LACMA</option>
+                    <option value="hollywood">Hollywood</option>
+                    <option value="dodger">Dodger Stadium</option>
+                </select>
+                <label>Location</label>
+            </div>
 
-<form action="/upload_image" method="POST" enctype="multipart/form-data">
-  <div class="file-field input-field">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <!-- img: <input type="file" name="my_image" /> -->
-  background img: <input type="file" name="first_image" />
-  face img: <input type="file" name="second_image" />
-  <input type="submit" / >
-</form>
+            <div class="file-field input-field col m6 s12">
+                <div class="btn">
+                    <span>background img:</span>
+                    <input type="file" name="first_image">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+                <!-- img: <input type="file" name="my_image" /> -->
+                <!-- background img: <input type="file" name="first_image" /> -->
+            </div>
+            <div class="file-field input-field col m6 s12">
+                <div class="btn">
+                    <span>face img:</span>
+                    <input type="file" name="second_image">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
 
+            </div>
+
+            <div class="row">
+                <form class="col s12" action="uploaded" method="GET">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                            <label for="textarea1">Description</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <input type="submit"/>
+        </div>
+    </form>
+</div>
 
 <!-- <% @photos.each do |p| %>
 <div style="border: solid black 1px">
@@ -36,36 +88,39 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-  var preview_one = $(".upload-preview-one img");
-
-  $(".file-one").change(function(event){
-     var input = $(event.currentTarget);
-     var file = input[0].files[0];
-     var reader = new FileReader();
-     reader.onload = function(e){
-         image_base64 = e.target.result;
-         preview_one.attr("src", image_base64);
-     };
-     reader.readAsDataURL(file);
-  });
-
-  var preview_two = $(".upload-preview-two img");
-
-  $(".file-two").change(function(event){
-     var input = $(event.currentTarget);
-     var file = input[0].files[0];
-     var reader = new FileReader();
-     reader.onload = function(e){
-         image_base64 = e.target.result;
-         preview_two.attr("src", image_base64);
-     };
-     reader.readAsDataURL(file);
-  });
+$(document).ready(function() {
+   $('select').material_select();
+ });
+</script>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var preview_one = $(".upload-preview-one img");
 
+        $(".file-one").change(function (event) {
+            var input = $(event.currentTarget);
+            var file = input[0].files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_base64 = e.target.result;
+                preview_one.attr("src", image_base64);
+            };
+            reader.readAsDataURL(file);
+        });
 
+        var preview_two = $(".upload-preview-two img");
 
-});
+        $(".file-two").change(function (event) {
+            var input = $(event.currentTarget);
+            var file = input[0].files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_base64 = e.target.result;
+                preview_two.attr("src", image_base64);
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
 </script>

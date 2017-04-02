@@ -1,11 +1,40 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div style="height:92vh;">
+    <img id="image-test" src="https://s3-us-west-1.amazonaws.com/hackthon-likelion/asset/ucla-02+(1).png" style="max-height:100%;">
+    <a href="/home/hollywood" style="position: absolute;top: 10vh;padding: 10vh;left: 250px; color:transparent;"> hollywood </a>
+    <a href="/home/getty" style="position: absolute; padding: 10vh; left: 65px; top: 15vh; color:transparent;"> getty </a>
+    <a href="/home/dodger" style="position: absolute; padding: 10vh; left: 450px; top: 26vh; color:transparent;"> dodgers </a>
+    <a href="/home/lacma" style="position: absolute;padding: 10vh;left: 170px;top: 30vh; color:transparent;"> lacma </a>
+</div>
+<div class="row" style="height:100vh; background: url('https://s3-us-west-1.amazonaws.com/hackthon-likelion/asset/background.png') no-repeat fixed center ; background-size:100%; margin-bottom:0;">
+<ul id="staggered-test">
+  <li>
+    <div class="card col m3 center-cards" style="margin: 40vh 3% 40vh 5%;">
+        <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+    </div>
+  </li>
+  <li>
+    <div class="card col m3 center-cards" style="margin: 40vh 3%;">
+        <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+    </div>
+  </li>
+  <li>
+    <div class="card col m3 center-cards" style="margin: 40vh 3%;">
+        <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+    </div>
+  </li>
 
-hello world!
+</ul>
 
 
+</div>
 
-<% @photos.each do |p| %>
+<!-- <% @photos.each do |p| %>
 <div style="border: solid black 1px">
 
   <%= p.id %> <br />
@@ -13,7 +42,7 @@ hello world!
   <%= p.face_img %> <br />
 
   </div>
-<% end %>
+<% end %> -->
 
 <div class="left">
   <div class="row">
@@ -48,3 +77,49 @@ hello world!
         </div>
   </div>
 </div>
+
+
+<!-- <script type="text/javascript">
+   $('.carousel.carousel-slider').carousel({fullWidth: true});
+   function autoplay() {
+       $('.carousel').carousel('next');
+       setTimeout(autoplay, 5000);
+   }
+   autoplay();
+</script> -->
+
+<script type="text/javascript">
+    //
+    // var options = [
+    //         {
+    //             selector: '.class',
+    //             offset: 200,
+    //             callback: customCallbackFunc
+    //         }
+    //     }, {
+    //         selector: '.other-class',
+    //         offset: 200,
+    //         callback: function () {
+    //             customCallbackFunc();
+    //         }
+    //     }
+    //     ];
+    // Materialize.scrollFire(options);
+
+    var options = [
+      {selector: '#staggered-test', offset: 450, callback: function(el) {
+        Materialize.toast("Check this out!", 1500 );
+      } },
+        {
+            selector: '#staggered-test',
+            offset: 300,
+            callback: function (el) {
+                Materialize.showStaggeredList($(el));
+            }
+        },
+      {selector: '#image-test', offset: 100, callback: function(el) {
+        Materialize.fadeInImage($(el));
+      } }
+    ];
+    Materialize.scrollFire(options);
+</script>

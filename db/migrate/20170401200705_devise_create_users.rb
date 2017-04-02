@@ -4,7 +4,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-
+      t.string :provider
+      t.string :uid
+      t.string :name #comment out if necessarily
+      t.string :image #comment out if necessarily 
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
