@@ -61,6 +61,9 @@ class HomeController < ApplicationController
 
     end
 
+    u.background_img = "https://hackthon-likelion.s3.amazonaws.com/uploads/956470095761851/output#{u.id}.jpg"
+    u.save!
+
     redirect_to "/#image-test"
   end
 
