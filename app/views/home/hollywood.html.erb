@@ -11,9 +11,9 @@
         <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
       </div>
       <div class="card-content" style="display: flex; flex-wrap: wrap; ">
-        <img style="border-radius: 10px;" src="<%= current_user.image %>"/>
+        <img style="border-radius: 10px;" src="<%= p.user_img_url %>"/>
         <p style="padding-top: 15px;padding-left: 10px; color: #26a69a;">
-          <%=current_user.name%>
+          <%=p.user_name%>
         </p>
         <p style="padding-top: 15px;padding-left: 10px;">
           <%=p.created_at.strftime("%b %d %Y")%>
