@@ -5,17 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+  <style>
+  .alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+  .alert {
+    margin-top: 1%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  .alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+  }
+  </style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <%= render "layouts/navbar" %>
 
 <% if notice != nil %>
-  <p class="alert alert-success" style="margin-top: 1%;"> <%= notice%> </p>
+  <p class="alert alert-success"> <%= notice%> </p>
 <% end %>
 <% if alert != nil %>
-  <p class="alert alert-danger" style="margin-top: 1%;"> <%= alert%> </p>
+  <p class="alert alert-danger"> <%= alert%> </p>
 <% end %>
 
 <%= yield %>

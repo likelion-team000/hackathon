@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'home#index'
 
   get 'gallery/hollywood'
@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get 'home/createform'
 
   post 'upload_image' => 'home#uploaded'
+
+  resources :photos do
+    member do
+      put "like", to: "photos#upvote"
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

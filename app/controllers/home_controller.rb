@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
-
   def index
     @photos = Photo.all
   end
+
 
   def uploaded
     # uploader = AvatarUploader.new
@@ -17,12 +17,25 @@ class HomeController < ApplicationController
     u = Photo.new
     u.background_img = uploader_one
     u.face_img = uploader_two
+    u.location = params[:location]
     # u.avatar = uploader
 
     u.save!
-    # u.avatar.url # => '/url/to/file.png'
-    # u.avatar.current_path # => 'path/to/file.png'
-    # u.avatar_identifier # => 'file.png'
+    u.avatar.url # => '/url/to/file.png'
+    u.avatar.current_path # => 'path/to/file.png'
+    u.avatar_identifier # => 'file.png'
+
+    #output = `python hackathon/lib/swapface.py u.background_img u.face_img`
+	  #logger.info "#####################################"
+	  #puts output
+  	#logger.info "#####################################"
+
+    require 'open3'
+    python = 'git push heroku master'
+    Open3.popen3(python) do |stdin, stdout, stderr, wait_thr|
+    logger.info "stdout is:" + stdout.read
+    logger.info "stderr is:" + stderr.read
+    end
 
     redirect_to "/home/hollywood"
   end

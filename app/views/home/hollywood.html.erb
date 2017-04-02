@@ -12,14 +12,19 @@
       <div class="card-image">
         <img src="<%= p.background_img %>" class="materialboxed">
         <!-- <%= image_tag 'hollywood.jpeg', class:"materialboxed"%> -->
-        <span class="card-title">Card Title</span>
+        <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
       </div>
       <div class="card-content">
         <p>Username</p>
         <!-- image , date -->
       </div>
       <div class="card-action">
-        <a href="#"><i class="material-icons">thumb_up</i></a>
+        <%= link_to like_photo_path(p), method: :put do %>
+          <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
+          <!-- <p> </p><%= p.get_upvotes.size %> -->
+        <% end %>
+        <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
+        <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
         <a href="#" class="right"><i class="material-icons">comment</i></a>
       </div>
     </div>
