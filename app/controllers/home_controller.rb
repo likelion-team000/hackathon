@@ -5,19 +5,19 @@ class HomeController < ApplicationController
 
 
   def uploaded
-    uploader = AvatarUploader.new
-    uploader.store!(params[:my_image])
-    # uploader_one = AvatarUploader.new
-    # uploader_one.store!(params[:first_image])
-    #
-    # uploader_two = AvatarUploader.new
-    # uploader_two.store!(params[:second_image])
+    # uploader = AvatarUploader.new
+    # uploader.store!(params[:my_image])
+    uploader_one = AvatarUploader.new
+    uploader_one.store!(params[:first_image])
+
+    uploader_two = AvatarUploader.new
+    uploader_two.store!(params[:second_image])
 
     # render :text => uploader.url # store this usrl to database
     u = Photo.new
-    # u.avatar_one = uploader_one
-    # u.avatar_two = uploader_two
-    u.avatar = uploader
+    u.background_img = uploader_one
+    u.face_img = uploader_two
+    # u.avatar = uploader
 
     u.save!
     u.avatar.url # => '/url/to/file.png'
