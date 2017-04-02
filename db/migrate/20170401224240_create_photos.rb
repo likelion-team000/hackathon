@@ -4,6 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :background_img
       t.string :face_img
       t.string :location
+      t.text :content
       t.timestamps null: false
     end
   end
