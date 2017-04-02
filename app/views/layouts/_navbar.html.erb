@@ -1,0 +1,17 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a class="waves-effect waves-light btn" href="/">Home</a></li>
+      <li><a href="/home/createform">upload</a></li>
+      <li><a href="/home/hollywood">photos</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to('My Account', edit_user_registration_path) %></li>
+        <li><a href="/users/sign_out">Log Out</a></li>
+      <% else %>
+        <li><%= link_to('Sign in', new_user_session_path) %></li>
+        <li><%= link_to('Sign up', new_user_registration_path) %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

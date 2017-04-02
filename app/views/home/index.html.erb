@@ -2,3 +2,15 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 hello world!
+
+
+
+<% @photos.each do |p| %>
+<div style="border: solid black 1px">
+
+  <%= p.id %> <br />
+  <%= p.background_img %> <br />
+  <%= p.face_img %> <br />
+
+  </div>
+<% end %>

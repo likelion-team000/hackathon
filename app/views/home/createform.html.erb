@@ -1,0 +1,70 @@
+<h1>Home#Createform</h1>
+<p>Find me in app/views/home/createform.html.erb</p>
+
+<p> hello! <%= current_user.email %> </p>
+
+<!-- <div class="upload-preview-one">
+    <img style="max-width:100px;"/>
+</div>
+<input class="file-one" name="background_img" type="file">
+<div class="upload-preview-two">
+    <img style="max-width:100px;"/>
+</div>
+<input class="file-two" name="background_img" type="file"> -->
+
+
+
+<form action="/upload_image" method="POST" enctype="multipart/form-data">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <!-- img: <input type="file" name="my_image" /> -->
+  background img: <input type="file" name="first_image" />
+  face img: <input type="file" name="second_image" />
+  <input type="submit" />
+</form>
+
+
+<!-- <% @photos.each do |p| %>
+<div style="border: solid black 1px">
+
+  <%= p.id %> <br />
+  <%= p.background_img %> <br />
+  <%= p.face_img %> <br />
+
+  </div>
+<% end %> -->
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var preview_one = $(".upload-preview-one img");
+
+  $(".file-one").change(function(event){
+     var input = $(event.currentTarget);
+     var file = input[0].files[0];
+     var reader = new FileReader();
+     reader.onload = function(e){
+         image_base64 = e.target.result;
+         preview_one.attr("src", image_base64);
+     };
+     reader.readAsDataURL(file);
+  });
+
+  var preview_two = $(".upload-preview-two img");
+
+  $(".file-two").change(function(event){
+     var input = $(event.currentTarget);
+     var file = input[0].files[0];
+     var reader = new FileReader();
+     reader.onload = function(e){
+         image_base64 = e.target.result;
+         preview_two.attr("src", image_base64);
+     };
+     reader.readAsDataURL(file);
+  });
+
+
+
+
+
+});
+</script>
