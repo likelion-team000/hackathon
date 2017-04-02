@@ -1,0 +1,27 @@
+<h1>Home#hollywood</h1>
+<p>Find me in app/views/home/hollywood.html.erb</p>
+
+
+
+<% @photos.each do |p| %>
+
+
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-image">
+        <img src="<%= p.background_img %>" class="materialboxed">
+        <!-- <%= image_tag 'hollywood.jpeg', class:"materialboxed"%> -->
+        <span class="card-title">Card Title</span>
+      </div>
+      <div class="card-content">
+        <p>Username</p>
+        <!-- image , date -->
+      </div>
+      <div class="card-action">
+        <a href="#"><i class="material-icons">thumb_up</i></a>
+        <a href="#" class="right"><i class="material-icons">comment</i></a>
+      </div>
+    </div>
+  </div>
+<% end %>

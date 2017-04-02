@@ -24,6 +24,21 @@ class HomeController < ApplicationController
     u.avatar.current_path # => 'path/to/file.png'
     u.avatar_identifier # => 'file.png'
 
-    redirect_to "/home/index"
+    redirect_to "/home/hollywood"
   end
+
+  def hollywood
+    @photos = Photo.all
+  end
+
+  def createform
+    unless user_signed_in?
+      redirect_to '/users/sign_in'
+    end
+      # @photos = Photo.all
+    # unless user_signed_in?
+    #   redirect_to "users/sign_in"
+    # end
+  end
+
 end

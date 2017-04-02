@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'gallery/hollywood'
 
   get 'home/index'
+  get 'home/hollywood'
+  get 'home/createform'
 
   post 'upload_image' => 'home#uploaded'
   # The priority is based upon order of creation: first created -> highest priority.
