@@ -30,11 +30,12 @@ class HomeController < ApplicationController
 	  #puts output
   	#logger.info "#####################################"
 
+    ## open python script to load images from 2 different url and merge two faces to one image
     require 'open3'
-    python = 'git push heroku master'
-    Open3.popen3(python) do |stdin, stdout, stderr, wait_thr|
-    logger.info "stdout is:" + stdout.read
-    logger.info "stderr is:" + stderr.read
+    output = "python #{Rails.root.join('lib', 'swapface.py')} #{u.background_img} #{u.face_img} #{Rails.root.join('lib', 'shape_predictor_68_face_landmarks.dat')}"
+    Open3.popen3(output) do |stdin, stdout, stderr, wait_thr|
+      logger.info "stdout is:" + stdout.read
+      logger.info "stderr is:" + stderr.read
     end
 
     redirect_to "/home/hollywood"
