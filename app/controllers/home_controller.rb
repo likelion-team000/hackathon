@@ -33,10 +33,21 @@ class HomeController < ApplicationController
 
     ## open python script to load images from 2 different url and merge two faces to one image
     require 'open3'
+
+    uploader_three = AvatarUploader.new
     output = "python #{Rails.root.join('lib', 'swapface.py')} #{u.background_img} #{u.face_img} #{Rails.root.join('lib', 'shape_predictor_68_face_landmarks.dat')}"
     Open3.popen3(output) do |stdin, stdout, stderr, wait_thr|
       logger.info "stdout is:" + stdout.read
       logger.info "stderr is:" + stderr.read
+
+      #Upload Here
+      file_path = Rails.root.join('output1.jpg')
+      uploader_three.store!(File.open(file_path))
+      logger.info "######################MERGED_FILE##################"
+      logger.info uploader_three.url
+      logger.info "######################MERGED_FILE##################"
+      File.delete(file_path)
+
     end
 
     redirect_to "/home/hollywood"
