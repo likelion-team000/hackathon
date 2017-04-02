@@ -17,15 +17,16 @@
 
 
 <form action="/upload_image" method="POST" enctype="multipart/form-data">
-  <div class="file-field input-field">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div>
   <!-- img: <input type="file" name="my_image" /> -->
   background img: <input type="file" name="first_image" />
   face img: <input type="file" name="second_image" />
   <input type="submit" / >
+  </div>
 </form>
 
-
+<!--
 <form action="#">
    <div class="file-field input-field">
      <div class="btn">
@@ -36,7 +37,7 @@
        <input class="file-path validate" type="text">
      </div>
    </div>
- </form>
+ </form> -->
 
 
 <!-- <% @photos.each do |p| %>
