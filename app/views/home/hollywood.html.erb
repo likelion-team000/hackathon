@@ -19,6 +19,10 @@
         <!-- image , date -->
       </div>
       <div class="card-action">
+        <%= link_to like_photo_path(p), method: :put do %>
+          Upvote
+          <%= p.get_upvotes.size %>
+        <% end %>
         <a href="#"><i class="material-icons">thumb_up</i></a>
         <a href="#" class="right"><i class="material-icons">comment</i></a>
       </div>
