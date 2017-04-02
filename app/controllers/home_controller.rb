@@ -38,6 +38,7 @@ class HomeController < ApplicationController
       logger.info "stderr is:" + stderr.read
     end
 
+
     redirect_to "/home/hollywood"
   end
 
