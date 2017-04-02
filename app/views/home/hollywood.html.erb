@@ -1,32 +1,33 @@
 <h1>Home#hollywood</h1>
 <p>Find me in app/views/home/hollywood.html.erb</p>
 
+<section>
+  <% @photos.each do |p| %>
 
 
-<% @photos.each do |p| %>
-
-
-<div class="row">
-  <div class="col s12 m4">
-    <div class="card">
-      <div class="card-image">
-        <img src="<%= p.background_img %>" class="materialboxed">
-        <!-- <%= image_tag 'hollywood.jpeg', class:"materialboxed"%> -->
-        <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
-      </div>
-      <div class="card-content">
-        <p>Username</p>
-        <!-- image , date -->
-      </div>
-      <div class="card-action">
-        <%= link_to like_photo_path(p), method: :put do %>
-          <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
-          <!-- <p> </p><%= p.get_upvotes.size %> -->
-        <% end %>
-        <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
-        <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
-        <a href="#" class="right"><i class="material-icons">comment</i></a>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= p.background_img %>" class="materialboxed">
+          <!-- <%= image_tag 'dodger.jpeg', class:"materialboxed"%> -->
+          <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
+        </div>
+        <div class="card-content">
+          <p>Username</p>
+          <!-- image , date -->
+        </div>
+        <div class="card-action">
+          <%= link_to like_photo_path(p), method: :put do %>
+            <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
+            <!-- <p> </p><%= p.get_upvotes.size %> -->
+          <% end %>
+          <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
+          <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
+          <a href="#" class="right"><i class="material-icons">comment</i></a>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+
+</section>

@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'home/hollywood'
+  get 'home/dodger'
+  get 'home/getty'
+  get 'home/lacma'
+
+
+
   get 'home/createform'
 
   post 'upload_image' => 'home#uploaded'
