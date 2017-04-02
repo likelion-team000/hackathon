@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20170401224419) do
 
   create_table "photos", force: :cascade do |t|
-    t.string   "avatar_one"
-    t.string   "avatar_two"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "background_img"
+    t.string   "face_img"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "avatar"
   end
 
