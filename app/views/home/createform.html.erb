@@ -1,18 +1,5 @@
 <h1>Form</h1>
 
-<p>
-    hello!
-    <%= current_user.email %>
-</p>
-<p>
-    hello!
-    <%= current_user.name %>
-</p>
-<p>
-    hello!
-    <img src="<%= current_user.image %>">
-</p>
-
 <!-- <div class="upload-preview-one">
     <img style="max-width:100px;"/>
 </div>
@@ -27,16 +14,7 @@
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <div class="row">
 
-            <div class="input-field col s12 m6">
-                <select name="location">
-                    <option value="" disabled selected>Choose your location</option>
-                    <option value="getty">Getty Center</option>
-                    <option value="lacma">LACMA</option>
-                    <option value="hollywood">Hollywood</option>
-                    <option value="dodger">Dodger Stadium</option>
-                </select>
-                <label>Location</label>
-            </div>
+
 
             <div class="file-field input-field col m6 s12">
                 <div class="btn">
@@ -60,8 +38,19 @@
 
             </div>
 
+            <div class="input-field col s12 m6">
+                <select name="location">
+                    <option value="" disabled selected>Choose your location</option>
+                    <option value="getty">Getty Center</option>
+                    <option value="lacma">LACMA</option>
+                    <option value="hollywood">Hollywood</option>
+                    <option value="dodger">Dodger Stadium</option>
+                </select>
+                <label>Location</label>
+            </div>
+
             <div class="row">
-                <form class="col s12" action="uploaded" method="GET">
+                <form class="col s12 m6" action="uploaded" method="GET">
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
