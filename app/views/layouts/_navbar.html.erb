@@ -1,13 +1,11 @@
-<nav class="cyan">
+<!-- <nav class="cyan">
   <div class="nav-wrapper">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <a href="/" class="brand-logo">Meet LA 2024</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/" class="btn btn-floating pulse"><i class="material-icons right">cloud</i></a></li>
-      <li><a href="/home/createform" class="waves-effect waves-light btn">upload <i class="material-icons right">navigation</i></a></li>
-      <li><a class="waves-effect waves-light btn" href="/home/hollywood">photos <i class="material-icons right">airplay</i></a></li>
-
+      <li><a class="waves-effect waves-light btn" href="/">Home</a></li>
+      <li> <a class="btn-floating btn-large waves-effect waves-light cyan" href="/home/createform"><i class="material-icons">add</i></a></li>
       <% if user_signed_in? %>
         <li><%= link_to('My Account', edit_user_registration_path) %></li>
         <li><a href="/users/sign_out">Log Out</a></li>
@@ -17,4 +15,23 @@
       <% end %>
     </ul>
   </div>
-</nav>
+</nav> -->
+<!-- <div class="fixed-action-btn horizontal" style="top: 23px; left: 23px;">
+<a class="btn-floating btn-large waves-effect waves-light cyan" href="/" ><i class="material-icons">home</i></a>
+</div> -->
+<div class="fixed-action-btn horizontal" style="top: 23px;">
+  <a class="btn-floating btn-large cyan">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red" href="/" ><i class="material-icons">home</i></a></li>
+    <li><a class="btn-floating yellow darken-1" href="/home/createform"><i class="material-icons">create</i></a></li>
+    <% if user_signed_in? %>
+      <li><a class="btn-floating green" href="/users/edit"><i class="material-icons">perm_identity</i></a></li>
+      <li><a class="btn-floating blue" href="/users/sign_out"><i class="material-icons">power_settings_new</i></a></li>
+    <% else %>
+      <li><a class="btn-floating green" href="/users/sign_in"><i class="material-icons">person</i></a></li>
+      <li><a class="btn-floating blue" href="/users/sign_up"><i class="material-icons">portrait</i></a></li>
+    <% end %>
+  </ul>
+</div>

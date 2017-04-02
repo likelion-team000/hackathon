@@ -1,33 +1,40 @@
-<h1>Home#lacma</h1>
-<p>Find me in app/views/home/lacma.html.erb</p>
+<h1>Los Angeles County Museum of Art</h1>
 
-<section>
+<section style="padding: 5%;">
   <% @photos.each do |p| %>
 
 
-<div class="row">
-  <div class="col s12 m4">
-    <!-- Reveal Card -->
-    <div class="card">
-      <div class="card-image">
-        <img src="<%= p.background_img %>" class="materialboxed">
-        <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
-      </div>
-      <div class="card-content">
-        <span class="card-title">Username</span>
-        <!-- image , date -->
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
-        <p><%= p.content %></p>
-        <p>These are Comments</p>
-      </div>
-      <div class="card-action">
-        <%= link_to like_photo_path(p), method: :put do %>
-          <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
-        <% end %>
-        <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
-        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= p.background_img %>" class="materialboxed">
+          <!-- <%= image_tag 'dodger.jpeg', class:"materialboxed"%> -->
+          <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
+        </div>
+        <div class="card-content" style="display: flex; flex-wrap: wrap; ">
+          <img style="border-radius: 10px;" src="<%= current_user.image %>"/>
+          <p style="padding-top: 15px;padding-left: 10px; color: #26a69a;">
+            <%=current_user.name%>
+          </p>
+          <p style="padding-top: 15px;padding-left: 10px;">
+            <%=p.created_at.strftime("%b %d %Y")%>
+          </p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+          <p><%= p.content %></p>
+          <p>These are Comments</p>
+        </div>
+        <div class="card-action">
+          <%= link_to like_photo_path(p), method: :put do %>
+            <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
+            <!-- <p> </p><%= p.get_upvotes.size %> -->
+          <% end %>
+          <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
+          <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
+          <a href="#" class="right"><i class="material-icons">comment</i></a>
+        </div>
       </div>
     </div>
   </div>
