@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# votable gem
+gem 'acts_as_votable'
+
 gem 'devise'
 
 gem 'carrierwave'
