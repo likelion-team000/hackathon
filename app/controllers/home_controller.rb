@@ -35,7 +35,7 @@ class HomeController < ApplicationController
     unless user_signed_in?
       redirect_to '/users/sign_in'
     end
-      # @photos = Photo.all
+      @photos = Photo.all
     # unless user_signed_in?
     #   redirect_to "users/sign_in"
     # end
