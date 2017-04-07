@@ -68,19 +68,19 @@ class HomeController < ApplicationController
   end
 
   def hollywood
-     @photos = Photo.select{|item| item[:location] == "hollywood"}
+     @photos = Photo.order(:cached_votes_up => :DESC).select{|item| item[:location] == "hollywood"}
   end
 
   def dodger
-     @photos = Photo.select{|item| item[:location] == "dodger"}
+     @photos = Photo.order(:cached_votes_up => :DESC).select{|item| item[:location] == "dodger"}
   end
 
   def getty
-     @photos = Photo.select{|item| item[:location] == "getty"}
+     @photos = Photo.order(:cached_votes_up => :DESC).select{|item| item[:location] == "getty"}
   end
 
   def lacma
-     @photos = Photo.select{|item| item[:location] == "lacma"}
+     @photos = Photo.order(:cached_votes_up => :DESC).select{|item| item[:location] == "lacma"}
   end
 
   def createform
